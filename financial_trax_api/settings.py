@@ -91,7 +91,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'financial_trax.urls'
+ROOT_URLCONF = 'financial_trax_api.urls'
 
 TEMPLATES = [
     {
@@ -109,7 +109,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'financial_trax.wsgi.application'
+WSGI_APPLICATION = 'financial_trax_api.wsgi.application'
 
 # Django Rest Framework
 #

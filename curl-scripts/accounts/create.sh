@@ -9,9 +9,11 @@ curl "http://localhost:8000/accounts/" \
   --header "Authorization: Token ${TOKEN}" \
   --data '{
     "account": {
-      "name": "'"${NAME}"'",
+      "type": "'"${TYPE}"'",
       "company": "'"${COMPANY}"'",
-      "balance": "'"${BALANCE}"'"
+      "balance": "'"${BALANCE}"'",
+      "inception": "'"${INCEPTION}"'",
+      "account_number": "'"${ACCOUNT_NUMBER}"'"
     }
   }'
 

@@ -15,13 +15,13 @@ class Account(models.Model):
 
   def __str__(self):
     # This must return a string
-    return f"The mango named '{self.name}' is {self.color} in color. It is {self.ripe} that it is ripe."
+    return f"The account named {self.name} held by {self.company} has a balance of {self.balance}"
 
   def as_dict(self):
-    """Returns dictionary version of Mango models"""
+    """Returns dictionary version of Account models"""
     return {
         'id': self.id,
         'name': self.name,
-        'ripe': self.ripe,
-        'color': self.color
+        'company': self.company,
+        'balance': self.balance
     }

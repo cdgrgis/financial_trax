@@ -7,7 +7,7 @@ from .models.user import User
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
-        fields = ('id', 'name', 'color', 'ripe', 'owner')
+        fields = '__all__'
 
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation

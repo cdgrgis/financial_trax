@@ -1,3 +1,5 @@
+# EMAIL=d@d.com PASSWORD=mommy sh curl-scripts/auth/sign-in.sh
+
 curl "http://localhost:8000/sign-in/" \
   --include \
   --request POST \

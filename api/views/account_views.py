@@ -23,6 +23,7 @@ class AccountsView(generics.ListCreateAPIView):
 
     def post(self, request):
         """Create request"""
+        print('request ', request.data)
         # Add user to request data object
         request.data['account']['owner'] = request.user.id
         # Serialize/create account

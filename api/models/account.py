@@ -17,7 +17,7 @@ class Account(models.Model):
 
   def __str__(self):
     # This must return a string
-    return f"The {self.name} account {self.account_number} held by {self.company} has a balance of {self.balance}"
+    return f"The {self.type} account {self.account_number} held by {self.company} has a balance of {self.balance}"
 
   def as_dict(self):
     """Returns dictionary version of Account models"""

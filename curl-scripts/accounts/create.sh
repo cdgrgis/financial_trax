@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# TOKEN=6f2250de1ced069c1be2c107da20a61d1ad63538 NAME=IRA COMPANY=Voya BALANCE=4470 sh curl-scripts/accounts/create.sh
+# TOKEN=454be1befad99ad3d4a6cc8d19ebbbba777d5433 TYPE=IRA COMPANY=Voya BALANCE=4470 INCEPTION=2022-03-01 ACCOUNT_NUMBER=123456 sh curl-scripts/accounts/create.sh
 
 curl "http://localhost:8000/accounts/" \
   --include \

@@ -6,9 +6,8 @@ class Fund(models.Model):
   # https://docs.djangoproject.com/en/3.2/ref/models/fields/
   ticker_symbol=models.CharField(max_length=5)
   company_name=models.CharField(max_length=100)
-  price=models.FloatField(),
-  amount_owned=models.FloatField(),
-  balance=models.DecimalField(0, max_digits=17, decimal_places=2)
+  price=models.FloatField()
+
 
   owner = models.ForeignKey(
     get_user_model(),
@@ -24,7 +23,5 @@ class Fund(models.Model):
         'id': self.id,
         'ticker_symbol': self.ticker_symbol,
         'company_name': self.company_name,
-        'price': self.price,
-        'amount_owned': self.amount_owned,
-        'balance': self.balance
+        'price': self.price
     }

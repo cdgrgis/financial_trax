@@ -1,3 +1,5 @@
+# EMAIL=d@d.com PASSWORD=daddy sh curl-scripts/auth/sign-up.sh
+
 curl "http://localhost:8000/sign-up/" \
   --include \
   --request POST \

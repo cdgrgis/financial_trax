@@ -1,6 +1,8 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
+from .models.fund_info import FundInfo
+from .models.fund import Fund
 from .models.account import Account
 from .models.user import User
 
@@ -8,6 +10,21 @@ class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
         fields = '__all__'
+
+class FundSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Fund
+        fields = '__all__'
+
+class FundInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FundInfo
+        fields = '__all__'
+
+class FundInfoReadSerializer(FundInfoSerializer):
+    account = AccountSerializer()
+    fund = FundSerializer()
+
 
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation

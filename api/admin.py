@@ -4,6 +4,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models.user import User
 from .models.account import Account
 from .models.fund import Fund
+from .models.fund_info import FundInfo
 
 class UserAdmin(BaseUserAdmin):
     ordering = ['id']
@@ -42,3 +43,4 @@ class UserAdmin(BaseUserAdmin):
 admin.site.register(User, UserAdmin)
 admin.site.register(Account)
 admin.site.register(Fund)
+admin.site.register(FundInfo)

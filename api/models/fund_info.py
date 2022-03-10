@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 from .fund import Fund
 
 class FundInfo(models.Model):
-  amount_owned=models.FloatField(),
+  amount_owned=models.FloatField()
   balance=models.DecimalField(max_digits=17, decimal_places=2)
 
 

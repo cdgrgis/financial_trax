@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 
 from .fund_info import FundInfo
 
+
 # Create your models here.
 class Account(models.Model):
   # define fields

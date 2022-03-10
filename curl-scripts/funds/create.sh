@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# TOKEN=7154deb5839d198e2395c4034411a7bf223708ba TICKER_SYMBOL=GME COMPANY_NAME="GameStop Corp" PRICE=105.21 sh curl-scripts/funds/create.sh
+# TOKEN=461aa69af742f3f5502f78a010e0818f37cf4f5e TICKER_SYMBOL=AAPL COMPANY_NAME="Apple Inc" PRICE=162.95 sh curl-scripts/funds/create.sh
 
 curl "http://localhost:8000/funds/" \
   --include \

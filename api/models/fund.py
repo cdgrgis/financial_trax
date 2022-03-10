@@ -15,7 +15,7 @@ class Fund(models.Model):
   )
 
   def __str__(self):
-    return f"{self.ticker_symbol} {self.company_name} is currently selling at {self.price}"
+    return f"{self.id}-{self.ticker_symbol} {self.company_name} is currently selling at {self.price}"
 
   def as_dict(self):
     """Returns dictionary version of Account models"""

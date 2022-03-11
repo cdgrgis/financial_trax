@@ -5,12 +5,12 @@ from rest_framework import generics, status
 from django.shortcuts import get_object_or_404
 
 from ..models.account import Account
-from ..serializers import AccountSerializer
+from ..serializers import AccountSerializer, AccountReadSerializer
 
 # Create your views here.
 class AccountsView(generics.ListCreateAPIView):
     permission_classes=(IsAuthenticated,)
-    serializer_class = AccountSerializer
+
     def get(self, request):
         """Index request"""
         # Get all the accounts:
@@ -18,7 +18,7 @@ class AccountsView(generics.ListCreateAPIView):
         # Filter the accounts by owner, so you can only see your owned accounts
         accounts = Account.objects.filter(owner=request.user.id)
         # Run the data through the serializer
-        data = AccountSerializer(accounts, many=True).data
+        data = AccountReadSerializer(accounts, many=True).data
         return Response({ 'accounts': data })
 
     def post(self, request):

@@ -11,6 +11,9 @@ class AccountSerializer(serializers.ModelSerializer):
         model = Account
         fields = '__all__'
 
+class AccountReadSerializer(AccountSerializer):
+    funds = serializers.StringRelatedField()
+
 class FundSerializer(serializers.ModelSerializer):
     class Meta:
         model = Fund

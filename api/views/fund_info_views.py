@@ -5,16 +5,23 @@ from rest_framework import generics, status
 from django.shortcuts import get_object_or_404
 
 from ..models.fund_info import FundInfo
-from ..serializers import FundInfoSerializer
+from ..serializers import FundInfoSerializer, FundInfoReadSerializer
 
-# Create your views here.
+
+class AccountFundInfosView(generics.ListCreateAPIView):
+  def get(self, request, pk):
+    fund_infos = FundInfo.objects.filter(account=pk)
+    data=FundInfoReadSerializer(fund_infos, many=True).data
+    return Response({ 'fund_infos': data })
+
+
 class FundInfosView(generics.ListCreateAPIView):
     permission_classes=(IsAuthenticated,)
     serializer_class = FundInfoSerializer
     def get(self, request):
         """Index request"""
-
-        fund_infos = FundInfo.objects.filter(owner=request.user.id)
+        print('request ', request.data)
+        fund_infos = FundInfo.objects
         # Run the data through the serializer
         data = FundInfoSerializer(fund_infos, many=True).data
         return Response({ 'fund_infos': data })

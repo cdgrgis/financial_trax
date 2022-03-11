@@ -47,21 +47,16 @@ class FundInfoDetailView(generics.RetrieveUpdateDestroyAPIView):
         """Show request"""
         # Locate the fund to show
         fund_info = get_object_or_404(FundInfo, pk=pk)
-        # Only want to show owned funds?
-        if request.user != fund_info.owner:
-            raise PermissionDenied('Unauthorized, you do not own this fund')
 
         # Run the data through the serializer so it's formatted
-        data = FundInfoSerializer(fund_info).data
+        data = FundInfoReadSerializer(fund_info).data
         return Response({ 'fund_info': data })
 
     def delete(self, request, pk):
         """Delete request"""
         # Locate fund to delete
         fund_info = get_object_or_404(FundInfo, pk=pk)
-        # Check the fund's owner against the user making this request
-        if request.user != fund_info.owner:
-            raise PermissionDenied('Unauthorized, you do not own this fund_info')
+
         # Only delete if the user owns the  fund
         fund_info.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

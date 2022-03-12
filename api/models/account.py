@@ -10,7 +10,6 @@ class Account(models.Model):
   # https://docs.djangoproject.com/en/3.2/ref/models/fields/
   type = models.CharField(max_length=100)
   company = models.CharField(max_length=100)
-  balance = models.FloatField()
   inception = models.DateField()
   account_number = models.CharField(max_length=100)
 

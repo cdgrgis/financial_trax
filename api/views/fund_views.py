@@ -63,6 +63,7 @@ class FundDetailView(generics.RetrieveUpdateDestroyAPIView):
 
     def partial_update(self, request, pk):
         """Update Request"""
+        print('update request ', request.data['fund'])
         # Locate Fund
         # get_object_or_404 returns a object representation of our Fund
         fund = get_object_or_404(Fund, pk=pk)

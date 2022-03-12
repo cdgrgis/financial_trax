@@ -16,6 +16,6 @@ class FundInfo(models.Model):
 
 
   def __str__(self):
-      return f"Owned: {self.amount_owned}, Balance: {self.balance}"
+      return f"{self.id} - Owned: {self.amount_owned}, Balance: {self.balance}"
 
 

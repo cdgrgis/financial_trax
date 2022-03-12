@@ -4,6 +4,8 @@ from rest_framework.exceptions import PermissionDenied
 from rest_framework import generics, status
 from django.shortcuts import get_object_or_404
 
+from django.db.models import Sum
+
 from ..models.fund_info import FundInfo
 from ..serializers import FundInfoSerializer, FundInfoReadSerializer
 
@@ -12,7 +14,9 @@ class AccountFundInfosView(generics.ListCreateAPIView):
   def get(self, request, pk):
     fund_infos = FundInfo.objects.filter(account=pk)
     data=FundInfoReadSerializer(fund_infos, many=True).data
-    return Response({ 'fund_infos': data })
+    balance = fund_infos.aggregate(Sum('balance'))
+    print('balance ', balance)
+    return Response({ 'fund_infos': data, 'balance': balance })
 
 
 class FundInfosView(generics.ListCreateAPIView):
@@ -29,8 +33,7 @@ class FundInfosView(generics.ListCreateAPIView):
     def post(self, request):
         """Create request"""
         print('request ', request.data)
-        # Add user to request data object
-        request.data['fund_info']['owner'] = request.user.id
+
         # Serialize/create fund
         fund_info = FundInfoSerializer(data=request.data['fund_info'])
         # If the fund data is valid according to our serializer...
@@ -66,12 +69,7 @@ class FundInfoDetailView(generics.RetrieveUpdateDestroyAPIView):
         # Locate Fund
         # get_object_or_404 returns a object representation of our Fund
         fund_info = get_object_or_404(FundInfo, pk=pk)
-        # Check the fund's owner against the user making this request
-        if request.user != fund_info.owner:
-            raise PermissionDenied('Unauthorized, you do not own this fund_info')
 
-        # Ensure the owner field is set to the current user's ID
-        request.data['fund_info']['owner'] = request.user.id
         # Validate updates with serializer
         data = FundInfoSerializer(fund_info, data=request.data['fund_info'], partial=True)
         if data.is_valid():

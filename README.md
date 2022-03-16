@@ -10,7 +10,7 @@ This project was started as the final submission piece for my Software Engineeri
 # Important Links
 [Deployed Site] (https://cdgrgis.github.io/financial_trax_client)
 [API Repository] (https://github.com/cdgrgis/financial_trax_api)
-[API] (https://dashboard.heroku.com/apps/financial-trax-api)
+[API] (https://financial-trax-api.herokuapp.com)
 
 ## User Model
   - email

@@ -41,7 +41,7 @@ else:
   DEBUG = False
   # Only allow the `CLIENT_ORIGIN` for CORS
   CORS_ORIGIN_WHITELIST = [
-    os.getenv('https://cdgrgis.github.io')
+    os.getenv('https://cdgrgis.github.io/financial_trax_client')
   ]
 
 # Database

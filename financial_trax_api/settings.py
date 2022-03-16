@@ -41,7 +41,7 @@ else:
   DEBUG = False
   # Only allow the `CLIENT_ORIGIN` for CORS
   CORS_ORIGIN_WHITELIST = [
-    os.getenv('CLIENT_ORIGIN')
+    os.getenv('https://cdgrgis.github.io')
   ]
 
 # Database
